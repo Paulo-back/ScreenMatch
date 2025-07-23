@@ -1,40 +1,31 @@
-package br.com.paulo.Screenmatch;
-
-import br.com.paulo.Screenmatch.Model.DadosSerie;
-import br.com.paulo.Screenmatch.Service.ConsumoApi;
-import br.com.paulo.Screenmatch.Service.ConverteDados;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.Scanner;
-
-@SpringBootApplication
-public class ScreenmatchApplication implements CommandLineRunner {
-
-	public static void main(String[] args) {
-		SpringApplication.run(ScreenmatchApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-
-
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Qual serie voce quer procurar: ");
-		String filme = sc.next();
-		String apiKey = "&apikey=4ff372f3";
-		String urlApi = "https://www.omdbapi.com/?t=";
-		String url = urlApi+filme+apiKey; // URL da API
+//package br.com.paulo.Screenmatch;
 //
-
-		var consumoApi = new ConsumoApi();
-		var json = consumoApi.obterDados(url);
-		System.out.println(json);
-//		json = consumoApi.obterDados("https://coffee.alexflipnote.dev/random.json");
-//		System.out.println(json);
-		ConverteDados conversor = new ConverteDados();
-		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
-		System.out.println(dados);
-	}
-}
+//import br.com.paulo.Screenmatch.Principal.Principal;
+//import br.com.paulo.Screenmatch.Service.Translator;
+//import br.com.paulo.Screenmatch.repository.SerieRepository;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.CommandLineRunner;
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
+//
+//@SpringBootApplication
+//public class ScreenmatchApplication implements CommandLineRunner {
+//
+//	@Autowired
+//	private SerieRepository repositorio;
+//
+//	public static void main(String[] args) {
+//		SpringApplication.run(ScreenmatchApplication.class, args);
+//	}
+//
+//	@Override
+//	public void run(String... args) throws Exception {
+//		Principal principal = new Principal(repositorio);
+//		Translator consulta = new Translator();
+////		String res = consulta.traduzir("Hellow, how are you? I'm so excited to find my key to another world","PT");
+////		System.out.println("Tradução: " + res);
+//		principal.exibiMenu();
+//
+//
+//	}
+//}
